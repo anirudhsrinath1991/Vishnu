@@ -578,7 +578,7 @@ const STORIES = {
 
 
 const NAV = [
-  ["Vishnu","hero"],["Forms","forms"],["Avatāras","avatars"],
+  ["Vishnu","hero"],["Forms","forms"],
   ["Nārāyaṇa","narayana"],["Vaikuṇṭha","vaikuntha"]
 ];
 
@@ -1036,7 +1036,7 @@ function AttributeSection({onOpen}){
 
 /* ---------- 5. MANY FORMS + AVATARS ---------- */
 function FormsIntro({onStory}){
-  return html`<${Scene} id="forms" world="forms" nav="Avatāras" h=${160} hm=${150} className="forms-big">
+  return html`<${Scene} id="forms" world="forms" nav="Forms" h=${190} hm=${170} className="forms-big">
     <div className="ring kk" style=${{'--a':.02,'--d':.25}}>
       ${AVATARS.map((av,i)=>{ const ang=i*36-90; const x=50+Math.cos(ang*Math.PI/180)*44, y=50+Math.sin(ang*Math.PI/180)*44;
         return html`<button key=${av.id} className="ring-i" style=${{left:x+'%',top:y+'%','--av-c':av.c}} onClick=${()=>onStory(i)} aria-label=${'Read the story of '+av.n}>
@@ -1044,7 +1044,7 @@ function FormsIntro({onStory}){
     </div>
     <div className="aspect" style=${{pointerEvents:'none'}}>
       <${Heading} title="THE MANY FORMS" sub="When the Divine takes form" a=${-1} z=${.9} />
-      <${Rv} a=${-1} z=${.9}><p className="small-note forms-note">Avatāra means descent. Tap any of the ten forms to read its story, or keep scrolling to travel through their worlds.</p><//>
+      <${Rv} a=${-1} z=${.9}><p className="small-note forms-note">Avatāra means descent. Tap any of the ten forms to read its story.</p><//>
     </div>
   <//>`;
 }
@@ -1067,8 +1067,7 @@ function AvatarSection({av, i, onStory}){
 
 function AvatarsGroup({onStory}){
   return html`<div id="avatars">
-    ${AVATARS.map((av,i)=>html`<${AvatarSection} key=${av.id} av=${av} i=${i} onStory=${onStory} />`)}
-    <div className="note-block" data-world="forms" data-nav="Avatāras">
+    <div className="note-block" data-world="forms" data-nav="Forms">
       <div><h3>A note on the ten</h3>
       <p className="small-note">Lists of the Daśāvatāra vary. Many name the Buddha as the ninth; others, especially in parts of South India and in some Vaiṣṇava traditions, name Balarāma instead, and some regard Kṛṣṇa not as one avatāra among ten but as their source. No single list is the only authoritative one.</p></div>
     </div>
@@ -1226,16 +1225,16 @@ const SECTIONS = [
   {type:'attributes'},
   {type:'forms'},
   {type:'avatars'},
-  {type:'aspect', id:'narasimha', world:'narasimha', nav:'Avatāras', h:220, hm:190, visual:'narasimha', exit:.93,
+  {type:'aspect', id:'narasimha', world:'narasimha', nav:'Forms', h:220, hm:190, visual:'narasimha', exit:.93,
     headings:[{title:"NĀRASIṀHA", sub:"The Protector", a:.03}],
     verse:{key:'narasimha', a:.16, focus:F("Nārasiṁha-vapuḥ@.32 Śrīmān@.44 / Keśavaḥ Puruṣottamaḥ"),
       meaning:[{t:"He whose form is Narasiṁha, the auspicious one.",a:.46}]},
     extra:[{t:"Protection, divine intervention, and the restoration of dharma.",a:.62}]},
-  {type:'aspect', id:'rama', world:'rama', nav:'Avatāras', h:220, hm:190, visual:'rama', exit:.93,
+  {type:'aspect', id:'rama', world:'rama', nav:'Forms', h:220, hm:190, visual:'rama', exit:.93,
     headings:[{title:"RĀMA", sub:"The Embodiment of Dharma", a:.03}],
     verse:{key:'rama', a:.16, focus:F("Rāmo@.3 Virāmo@.4 Virajo Mārgo@.5 / Neyo@.58 Nayo’nayaḥ@.6"),
       meaning:[{t:"Rāma. The ultimate rest.",a:.42},{t:"The path and the guide.",a:.6}]}},
-  {type:'aspect', id:'krishna', world:'krishna', nav:'Avatāras', h:200, hm:180, visual:'krishna', exit:.93,
+  {type:'aspect', id:'krishna', world:'krishna', nav:'Forms', h:200, hm:180, visual:'krishna', exit:.93,
     headings:[{title:"KṚṢṆA", sub:"The Divine Guide", a:.03, z:.44}],
     names:[{n:"Kṛṣṇaḥ",g:"The dark one; read by Śaṅkara as being and bliss",a:.48},{n:"Govindaḥ",g:"Protector of cows and of the earth",a:.56},{n:"Vāsudevaḥ",g:"The one who dwells in all, in whom all dwell",a:.64}],
     extra:[{t:"On the field of Kurukṣetra He speaks the Bhagavad Gītā. On that same field, tradition holds, Bhīṣma later taught the thousand names in His presence.",a:.74}]},
