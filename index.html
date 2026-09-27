@@ -120,14 +120,15 @@ body.immersed .nav:hover,body.immersed .nav:focus-within{opacity:1}
   radial-gradient(ellipse 80% 75% at 50% 42%,transparent 55%,rgba(2,4,14,.65) 100%)}
 @keyframes photoIn{from{opacity:0;transform:scale(1.07)}to{opacity:1;transform:scale(1)}}
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.045)}}
-.hero .hero-text{position:absolute;z-index:3;left:0;right:0;bottom:calc(8svh + 10px);text-align:center}
+.hero .hero-text{position:absolute;z-index:3;left:0;right:0;bottom:calc(11svh + 14px);text-align:center}
+@media (max-height:760px){.scroll-cue{font-size:0;gap:0}}
 .hero .hero-text::before{content:"";position:absolute;z-index:-1;left:50%;top:-8svh;bottom:-7svh;width:min(900px,130vw);transform:translateX(-50%);background:radial-gradient(ellipse 50% 55% at 50% 55%,rgba(3,6,20,.85),rgba(3,6,20,.45) 55%,transparent 76%);pointer-events:none}
 .hero h1{margin:0 0 4px;font-family:var(--serif);font-weight:300;font-size:clamp(54px,8.5vw,124px);letter-spacing:.2em;padding-left:.2em;line-height:1;
   background:linear-gradient(180deg,#fdf8ea 0%,#f1d897 58%,#c4954a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleIn 2.4s cubic-bezier(.2,.7,.2,1) .7s both}
 .hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(21px,2.2vw,30px);margin:0;color:var(--ivory);animation:rise 2.2s cubic-bezier(.2,.7,.2,1) 1.4s both}
 .hero-deva{font-family:var(--deva);font-size:clamp(21px,2vw,28px);color:var(--gold);margin:12px 0 2px;animation:rise 2.2s cubic-bezier(.2,.7,.2,1) 1.7s both}
 .hero-iast{font-size:14px;letter-spacing:.12em;color:var(--ink-soft);margin:0;animation:rise 2.2s cubic-bezier(.2,.7,.2,1) 1.9s both}
-.scroll-cue-wrap{position:absolute;z-index:3;left:0;right:0;bottom:3.2svh;display:flex;justify-content:center}
+.scroll-cue-wrap{position:absolute;z-index:3;left:0;right:0;bottom:2.2svh;display:flex;justify-content:center}
 .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;color:var(--ink-faint);animation:rise 2s ease 2.8s both}
 .scroll-cue i{display:block;width:1px;height:38px;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:cue 2.8s ease-in-out infinite}
 @keyframes titleIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -180,12 +181,14 @@ body.immersed .nav:hover,body.immersed .nav:focus-within{opacity:1}
 .lotus .pt{transform-box:fill-box;transform-origin:50% 100%;transform:rotate(calc(var(--ang) * (.22 + .78 * var(--open,1)) * 1deg))}
 
 /* ---------- forms ---------- */
-.ring{position:absolute;z-index:4;left:50%;top:50%;width:min(86vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%) rotate(calc(var(--p,0) * -36deg));opacity:calc(.35 + var(--k) * .65);will-change:transform}
+.ring{position:absolute;z-index:4;left:50%;top:50%;width:min(86vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%) rotate(calc(var(--p,0) * -36deg));will-change:transform}
 .ring-i{position:absolute;width:11%;transform:translate(-50%,-50%) rotate(calc(var(--p,0) * 36deg));background:none;border:0;padding:0;cursor:pointer;color:var(--av-c,var(--gold));display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-ic{display:block;width:100%;aspect-ratio:1;opacity:.78;transition:opacity .35s,transform .35s}
-.ring-ic svg{width:100%;height:100%;display:block}
-.ring-i:hover .ring-ic,.ring-i:focus-visible .ring-ic{opacity:1;transform:scale(1.12)}
-.ring-l{font-family:var(--serif);font-size:17px;color:var(--ivory);white-space:nowrap;opacity:.85}
+.ring-ic{display:block;width:100%;aspect-ratio:1;border-radius:50%;padding:12%;background:radial-gradient(circle,color-mix(in srgb,var(--av-c,var(--gold)) 22%,transparent) 0%,transparent 70%);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--av-c,var(--gold)) 30%,transparent);transition:transform .35s,box-shadow .35s,background .35s}
+.ring-ic svg{width:100%;height:100%;display:block;stroke-width:3.2}
+.ring-i:hover .ring-ic,.ring-i:focus-visible .ring-ic{transform:scale(1.14);background:radial-gradient(circle,color-mix(in srgb,var(--av-c,var(--gold)) 40%,transparent) 0%,transparent 72%);box-shadow:inset 0 0 0 1.5px var(--av-c,var(--gold)),0 0 30px color-mix(in srgb,var(--av-c,var(--gold)) 45%,transparent)}
+.ring-i:focus-visible{outline:none}
+.ring-l{font-family:var(--serif);font-size:19px;color:var(--ivory);white-space:nowrap;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.ring-i:hover .ring-l{color:var(--av-c,var(--gold))}
 .forms-note{color:var(--ink-soft)}
 .forms-big .h-title{font-size:clamp(46px,9vw,150px);transform:scale(calc(1.15 - var(--p,0) * .2))}
 
@@ -338,7 +341,8 @@ body.immersed .nav:hover,body.immersed .nav:focus-within{opacity:1}
   .av-line{margin:0 auto}
   .ring{width:94vw}
   .ring-i{width:15%}
-  .ring-l{font-size:13px}
+  .ring-l{font-size:14px}
+  .ring-ic svg{stroke-width:4}
   .story-modal{padding:0}
   .story-card{width:100%;height:100%;max-height:none;border-radius:0;border:0}
   .story-hero{grid-template-columns:1fr;text-align:center;justify-items:center;padding-top:58px}
@@ -1039,8 +1043,8 @@ function FormsIntro({onStory}){
           <span className="ring-ic" aria-hidden="true" dangerouslySetInnerHTML=${{__html:EMBLEMS[av.id]}}></span><span className="ring-l">${av.n}</span></button>`; })}
     </div>
     <div className="aspect" style=${{pointerEvents:'none'}}>
-      <${Heading} title="THE MANY FORMS" sub="When the Divine takes form" a=${.04} z=${.9} />
-      <${Rv} a=${.2} z=${.9}><p className="small-note forms-note">Avatāra means descent. Tap any of the ten to hear its story, or keep scrolling to travel through their worlds.</p><//>
+      <${Heading} title="THE MANY FORMS" sub="When the Divine takes form" a=${-1} z=${.9} />
+      <${Rv} a=${-1} z=${.9}><p className="small-note forms-note">Avatāra means descent. Tap any of the ten forms to read its story, or keep scrolling to travel through their worlds.</p><//>
     </div>
   <//>`;
 }
